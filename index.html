@@ -11,14 +11,24 @@
 <script type="text/jsx">
 /** @jsx React.DOM */
 var APP = React.createClass({
+  propTypes: {
+    txt: React.PropTypes.string,
+    cat: React.PropTypes.number.isRequired
+  },
+  getDefaultProps: function() {
+    return {
+      txt: '',
+      cat: 0
+    }
+  },
   render: function() {
     return (
-      <h1>Maruf</h1>
+      <h1>{this.props.txt} - {this.props.cat}</h1>
     )
   }
 });
 
-React.renderComponent(<APP />, document.body);
+React.renderComponent(<APP txt='Marufs'/>, document.body);
 
 </script>
 </body>
